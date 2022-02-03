@@ -14,9 +14,12 @@ class Area:
 
     def display_goals(self):
         '''How to display the goals'''
-        for goal in self.goals:
-            goal.describe_goal()
-            print("")
+        if len(self.goals) == 0:
+            print("No goals yet defined.\n")
+        else:
+            for goal in self.goals:
+                goal.describe_goal()
+                print("")
 
     # TODO: Add in functionality to view stats about past goals
 
