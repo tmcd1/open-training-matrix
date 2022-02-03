@@ -65,18 +65,3 @@ if __name__ == '__main__':
             keep_going = False
         else:
             print("Please select a valid option.\n")
-    
-    # fitness = Area("fitness")
-    
-    # workout_goal = Goal("get to steppin",
-    #                     "workout 4x a week",
-    #                     TimeFrame("Monday", "5 weeks"),
-    #                     4,
-    #                     "current")
-
-    # fitness.add_goal(workout_goal)
-
-    # fitness.display_goals()
-
-    # Ask user what they want to do
-    # Take the action the user wants to do
