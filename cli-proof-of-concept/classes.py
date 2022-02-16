@@ -1,4 +1,7 @@
 '''Classes for the proof-of-concept training matrix'''
+import json
+from textwrap import indent
+
 
 class Area:
     '''An area of interest is a collection of goals.
@@ -18,7 +21,7 @@ class Area:
             print("No goals yet defined.\n")
         else:
             for goal in self.goals:
-                goal.describe_goal()
+                print(goal.goal_to_json())
                 print("")
 
     # TODO: Add in functionality to view stats about past goals
@@ -34,13 +37,23 @@ class Goal:
         self.weight = weight
         self.currency = currency
 
-    def describe_goal(self):
-        '''Print info about the goal'''
-        print("Goal name: %s" % self.name)
-        print("Description: %s" % self.description)
-        print("Time frame: %s" % self.time_frame)
-        print("Weight: %d" % self.weight)
-        print("Currency: %s" % self.currency)
+    def __str__(self):
+        return "Goal name: " + self.name + \
+               "Description: " + self.description + \
+               "Time frame: " + str(self.time_frame) + \
+               "Weight: " + str(self.weight) + \
+               "Currency: " + self.currency
+
+    def goal_to_json(self):
+        '''Convert goal object to json object'''
+        goal_dict = {
+            "goal_name" : self.name,
+            "description" : self.description,
+            "time_frame" : str(self.time_frame),
+            "weight" : str(self.weight),
+            "currency" : self.currency
+        }
+        return json.dumps(goal_dict)
 
 class TimeFrame:
     '''Time frames have a duration and start date'''
